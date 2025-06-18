@@ -14,7 +14,7 @@ const navLinks = [
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
-    const [selectedLang, setSelectedLang] = useState("Uzbek");
+    const [selectedLang, setSelectedLang] = useState("En");
     const [activeTab, setActiveTab] = useState("home");
     const [underlineProps, setUnderlineProps] = useState({ left: 0, width: 0 });
 
@@ -42,17 +42,17 @@ const Navbar = () => {
         {
             key: "uz",
             label: <p>Uzbek</p>,
-            onClick: () => setSelectedLang("Uzbek"),
+            onClick: () => setSelectedLang("Uz"),
         },
         {
             key: "ru",
             label: <p>Russian</p>,
-            onClick: () => setSelectedLang("Russian"),
+            onClick: () => setSelectedLang("Ru"),
         },
         {
             key: "en",
             label: <p>English</p>,
-            onClick: () => setSelectedLang("English"),
+            onClick: () => setSelectedLang("En"),
         },
     ];
 
