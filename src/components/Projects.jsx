@@ -4,59 +4,42 @@ import SlideInWhenVisible from "../effects/SlideInWhenVisible";
 
 const steps = [
     {
-        number: "01",
-        title: "Discovery",
-        description:
-            "We start by understanding your business, goals, and requirements to create a solid foundation for your project.",
-        color: "bg-cyan-500",
+      "title": "E-Commerce Platform",
+      "description": "loyihalar yuklanish jarayonida",
+      "category": "Web Development",
+      "technologies": ["React", "Node.js", "Next.js", "+8 Texnologiyalar"],
+      "image": "/images/ecommerce1.png",
+      "url": "#"
     },
     {
-        number: "02",
-        title: "Planning",
-        description:
-            "Based on the discovery phase, we create a detailed plan including timeline, milestones, and deliverables.",
-        color: "bg-purple-500",
+      "title": "E-Commerce Platform",
+      "description": "loyihalar yuklanish jarayonida",
+      "category": "Web Development",
+      "technologies": ["React", "Node.js", "Next.js", "+8 Texnologiyalar"],
+      "image": "/images/ecommerce2.png",
+      "url": "#"
     },
     {
-        number: "03",
-        title: "Design",
-        description:
-            "Our designers create beautiful, user-friendly interfaces that align with your brand and meet your users' needs.",
-        color: "bg-pink-500",
-    },
-    {
-        number: "04",
-        title: "Development",
-        description:
-            "Our developers bring the designs to life with clean, efficient code that follows best practices and standards.",
-        color: "bg-orange-400",
-    },
-    {
-        number: "05",
-        title: "Testing",
-        description:
-            "We thoroughly test every aspect of your project to ensure it works flawlessly across all devices and browsers.",
-        color: "bg-green-500",
-    },
-    {
-        number: "06",
-        title: "Launch",
-        description:
-            "Once everything is perfect, we launch your project and provide support to ensure a smooth transition.",
-        color: "bg-rose-500",
-    },
-];
+      "title": "E-Commerce Platform",
+      "description": "loyihalar yuklanish jarayonida",
+      "category": "Web Development",
+      "technologies": ["React", "Node.js", "Next.js", "+8 Texnologiyalar"],
+      "image": "/images/ecommerce3.png",
+      "url": "#"
+    }
+  ]
+  
 
-const HowIWork = () => {
+const Projects = () => {
     return (
-        <section className="Proccess pt-10 pb-15 px-4" id="how-i-work">
+        <section className="Proccess pt-10 pb-15 px-4" id="projects">
             <div className="container mx-auto  px-4">
 
                 <SlideInWhenVisible direction="down" delay={0.3}>
-                    <p className="font-bold bg-blue-800/50 w-fit mx-auto px-3 py-1 rounded-2xl">My Proccess</p>
+                    <p className="font-bold bg-blue-800/50 w-fit mx-auto px-4 py-1 rounded-2xl">My Projects</p>
                 </SlideInWhenVisible>
                 <SlideInWhenVisible direction="up" className="mb-10">
-                    <h1 className="text-center text-2xl xl:text-4xl font-bold ">How I <span className="text-blue-500">Work</span></h1>
+                    <h1 className="text-center text-2xl xl:text-4xl font-bold "><span className="text-blue-500">Projects</span> I Created </h1>
                 </SlideInWhenVisible>
 
 
@@ -91,4 +74,4 @@ const HowIWork = () => {
     );
 };
 
-export default HowIWork;
+export default Projects;

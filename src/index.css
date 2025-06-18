@@ -12,10 +12,11 @@ body {
   background: linear-gradient(
     270deg,
     #00000e,
+    #00000e,
     #002939,
     #03001d,
-    #03001d,
-    #00000e
+    #00000e,
+    #03001d
   );
   background-size: 500% 500%;
   animation: bg-pan-left 10s linear infinite;
@@ -25,8 +26,6 @@ body {
   background: linear-gradient(
     270deg,
     #00001c,
-    #090029,
-    #090029,
     #0e003ff5,
     #090029,
     #090029,
