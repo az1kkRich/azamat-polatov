@@ -4,6 +4,8 @@ import Header from './components/Header'
 import About from './components/About'
 import HowIWork from './components/HowIWork'
 import Projects from './components/Projects'
+import Skills from './components/Skills'
+import BlogSection from './components/Blog'
 
 const App = () => {
   return (
@@ -13,8 +15,8 @@ const App = () => {
       <About />
       <HowIWork />
       <Projects />
-      <div className='h-[100vh] bg-gray-700' id='skills'></div>
-      <div className='h-[100vh] bg-gray-600' id='blog'></div>
+      <Skills />
+      <BlogSection />
     </>
   )
 }

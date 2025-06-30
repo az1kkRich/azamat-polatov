@@ -66,7 +66,7 @@ const HowIWork = () => {
 
                     {steps.map((step, index) => (
                         <FadeInWhenVisible key={index} delay={0.2}>
-                            <div className="relative bg-[#1a1a35] rounded-xl shadow z-10 overflow-hidden hover:shadow-blue-500/80 transition ">
+                            <div className="relative bg-[#1a1a35] rounded-xl h-full shadow z-10 overflow-hidden hover:shadow-blue-500/80 transition ">
                                 <SlideInWhenVisible direction="specialWork" delay={0.1 + index * 0.1} className="relative z-10">
                                 <div className={`absolute ${step.color} w-30 h-30 top-[-2rem] right-[-3rem] rounded-full`} />
                                 </SlideInWhenVisible>

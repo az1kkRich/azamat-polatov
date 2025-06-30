@@ -1,0 +1,35 @@
+[
+    {
+      "id": 1,
+      "title": "5 React Hook misoli amaliyotda",
+      "date": "June 2025",
+      "image": "https://source.unsplash.com/400x300/?react,code",
+      "tags": ["React", "Hooks", "Frontend"],
+      "description": "React'da eng ko‘p ishlatiladigan 5 hook’ni amaliy misollar bilan tushuntiraman."
+    },
+    {
+      "id": 2,
+      "title": "Firebase bilan login va parolni soddalik bilan qo‘shish",
+      "date": "May 2025",
+      "image": "https://source.unsplash.com/400x300/?firebase,auth",
+      "tags": ["Firebase", "Authentication", "Security"],
+      "description": "Firebase orqali tizimga kirish va ro‘yxatdan o‘tish funksiyalarini qanday sozlash haqida to‘liq qo‘llanma."
+    },
+    {
+      "id": 3,
+      "title": "Tailwind CSS bilan 5 ta eng samarali dizayn patternlari",
+      "date": "April 2025",
+      "image": "https://source.unsplash.com/400x300/?tailwind,css",
+      "tags": ["Tailwind", "UI", "Responsive"],
+      "description": "Loyihangizni samarali qilish uchun eng foydali Tailwind amaliy dizayn patternlari."
+    },
+    {
+      "id": 4,
+      "title": "Portfolio yaratishda 3 ta katta xatolik (va men ularni qanday tuzatdim)",
+      "date": "March 2025",
+      "image": "https://source.unsplash.com/400x300/?portfolio,code",
+      "tags": ["Portfolio", "Experience", "Tips"],
+      "description": "Yangi boshlovchilar uchun portfolio yaratishda qilingan xatolar va foydali maslahatlar."
+    }
+  ]
+  

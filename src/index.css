@@ -48,3 +48,79 @@ body {
 }
 
 
+
+
+/* Projects */
+
+.projectCard {
+  background: rgba(30, 168, 175, 0.1); /* Ko'k aralashgan shaffof fon */
+  backdrop-filter: blur(12px);        /* Blur effekt */
+  -webkit-backdrop-filter: blur(12px);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+}
+
+.projectImageContainer {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.projectImage {
+  width: 100%;
+  max-height: 15rem; /* 60 = 15rem */
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.projectImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 0.5rem;
+}
+
+.projectCategory {
+  display: flex;
+  margin-top: -1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease-in-out;
+}
+
+
+.projectCategory p {
+  margin-left: 0.75rem;
+  font-weight: bold;
+  font-size: 0.875rem;
+  font-family: monospace;
+  padding: 0.25rem 0.75rem;
+  z-index: 10;
+  background-color: #4b5563; /* Tailwind bg-gray-700 */
+  border-radius: 9999px;
+  color: white;
+}
+
+/* Qurulmaga qarab hover effectlari */
+@media (hover: hover) {
+  /* Hover effekti */
+  .projectCard:hover .projectCategory {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  
+  .projectCard:hover .projectImage img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .projectCard:hover {
+    box-shadow: 0 1px 5px rgba(59, 130, 246, 0.8);
+    transform: translateY(-4px);
+    background: rgba(30, 64, 175, 0.2); /* Hoverda fonni biroz shaffofroq qilish */
+  }
+
+}

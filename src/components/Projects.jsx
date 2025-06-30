@@ -1,36 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import FadeInWhenVisible from "../effects/FadeInWhenVisible";
 import SlideInWhenVisible from "../effects/SlideInWhenVisible";
+import ProjectsData from "../data/Projects.json"
+import { Button } from "antd";
+import { MdOutlineNavigateNext } from "react-icons/md";
 
-const steps = [
-    {
-      "title": "E-Commerce Platform",
-      "description": "loyihalar yuklanish jarayonida",
-      "category": "Web Development",
-      "technologies": ["React", "Node.js", "Next.js", "+8 Texnologiyalar"],
-      "image": "/images/ecommerce1.png",
-      "url": "#"
-    },
-    {
-      "title": "E-Commerce Platform",
-      "description": "loyihalar yuklanish jarayonida",
-      "category": "Web Development",
-      "technologies": ["React", "Node.js", "Next.js", "+8 Texnologiyalar"],
-      "image": "/images/ecommerce2.png",
-      "url": "#"
-    },
-    {
-      "title": "E-Commerce Platform",
-      "description": "loyihalar yuklanish jarayonida",
-      "category": "Web Development",
-      "technologies": ["React", "Node.js", "Next.js", "+8 Texnologiyalar"],
-      "image": "/images/ecommerce3.png",
-      "url": "#"
-    }
-  ]
-  
+
 
 const Projects = () => {
+
+    const [loadings, setLoadings] = useState([]);
+
+    const enterLoading = (index, url) => {
+
+    
+        setLoadings((prevLoadings) => {
+          const newLoadings = [...prevLoadings];
+          newLoadings[index] = true;
+          return newLoadings;
+        });
+    
+        setTimeout(() => {
+
+            window.open(url, "_blank");
+          setLoadings((prevLoadings) => {
+            const newLoadings = [...prevLoadings];
+            newLoadings[index] = false;
+            return newLoadings;
+          });
+        }, 1000);
+      };
+
+    
+    const projects = ProjectsData;
     return (
         <section className="Proccess pt-10 pb-15 px-4" id="projects">
             <div className="container mx-auto  px-4">
@@ -45,28 +47,46 @@ const Projects = () => {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
                     {/* Vertical Line */}
-                    <div className=" absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-600 z-0" />
+                    {/* <div className=" absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-600 z-0" /> */}
 
-                    {steps.map((step, index) => (
+                    {projects.map((item, index) => (
                         <FadeInWhenVisible key={index} delay={0.2}>
-                            <div className="relative bg-[#1a1a35] rounded-xl shadow z-10 overflow-hidden hover:shadow-blue-500/80 transition ">
-                                <SlideInWhenVisible direction="specialWork" delay={0.1 + index * 0.1} className="relative z-10">
-                                <div className={`absolute ${step.color} w-30 h-30 top-[-2rem] right-[-3rem] rounded-full`} />
-                                </SlideInWhenVisible>
-
-                                <div className="p-6 ">
-                                    <div
-                                        className={`w-14 h-14 flex items-center justify-center ${step.color} text-white rounded-full text-xl font-bold mb-4`}
-                                    >
-                                        {step.number}
-
+                            <div className="projectCard h-full rounded-xl shadow z-10 overflow-hidden transition ">
+                                <div className="p-6">
+                                    <div className="projectImageContainer">
+                                        <div className="projectImage">
+                                            <img src={item.image} alt={item.name} className="w-full " />
+                                        </div>
+                                        <span className="projectCategory">
+                                            <p>{item.category}</p>
+                                        </span>
                                     </div>
-                                    <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
-                                    <p className="text-gray-300 text-sm">{step.description}</p>
 
+                                    <h3 className="text-2xl font-bold mb-2">{item.name}</h3>
+                                    <p className="text-gray-300 text-sm">{item.description}</p>
+                                    <div className="mt-4 flex gap-2">
+                                        {item.tags.map((tag, tagIndex) => (
+                                            <span key={tagIndex} className="bg-gray-600 text-amber-200  font-semibold font-sans px-3 py-1 rounded-full text-[9px]">
+                                                #{tag}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <Button
+                                        type="primary"
+                                        icon={<MdOutlineNavigateNext />}
+                                        loading={loadings[index] || false}
+                                        onClick={() => enterLoading(index, item.url) }
+                                        iconPosition="end"
+                                        className="mt-4"
+                                    >
+                                        See Project
+                                    </Button>
                                 </div>
                             </div>
                         </FadeInWhenVisible>
+
+
                     ))}
                 </div>
             </div>
