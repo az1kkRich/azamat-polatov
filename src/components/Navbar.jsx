@@ -3,33 +3,38 @@ import { Button, Dropdown } from "antd";
 import { Link as ScrollLink } from "react-scroll";
 import { motion } from "framer-motion";
 import mainLogo from "../assets/mainLogo2.png";
+import { useTranslation } from "react-i18next";
 
-const navLinks = [
-    { name: "Home", to: "home" },
-    { name: "About", to: "about" },
-    { name: "Projects", to: "projects" },
-    { name: "Skills", to: "skills" },
-    { name: "Blog", to: "blog" },
-];
+
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
-    const [selectedLang, setSelectedLang] = useState("En");
+    const [selectedLang, setSelectedLang] = useState("uz");
     const [activeTab, setActiveTab] = useState("home");
     const [underlineProps, setUnderlineProps] = useState({ left: 0, width: 0 });
 
+    const { t } = useTranslation();
+
+    const navLinks = [
+        { name: t("Home"), to: "home" },
+        { name: t("About"), to: "about" },
+        { name: t("Projects"), to: "projects" },
+        { name: t("Skills"), to: "skills" },
+        { name: t("Blog"), to: "blog" },
+      ];
+    
     const linkRefs = useRef({});
 
+    // Scroll event
     useEffect(() => {
         const onScroll = () => {
             setScrolled(window.scrollY > 50);
         };
-
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    // Update underline position when active tab changes
+    // Underline update
     useEffect(() => {
         const currentEl = linkRefs.current[activeTab];
         if (currentEl) {
@@ -38,21 +43,43 @@ const Navbar = () => {
         }
     }, [activeTab]);
 
+
+    const { i18n } = useTranslation();
+
+
+    // Load saved language from localStorage
+    useEffect(() => {
+        const savedLang = localStorage.getItem("lang");
+        if (savedLang) {
+            setSelectedLang(savedLang);
+        } else {
+            localStorage.setItem("lang", "en"); // Default to Uzbek if no language is saved
+        }
+    }, []);
+
+    const handleLangChange = (lang) => {
+        setSelectedLang(lang);
+        localStorage.setItem("lang", lang);
+        i18n.changeLanguage(lang); // <-- MUHIM QISM
+        console.log(`Language changed to: ${lang}`, i18n.language);
+        
+    };
+
     const items = [
         {
             key: "uz",
-            label: <p>Uzbek</p>,
-            onClick: () => setSelectedLang("Uz"),
+            label: <p>O‘zbek</p>,
+            onClick: () => handleLangChange("uz"),
         },
         {
             key: "ru",
-            label: <p>Russian</p>,
-            onClick: () => setSelectedLang("Ru"),
+            label: <p>Русский</p>,
+            onClick: () => handleLangChange("ru"),
         },
         {
             key: "en",
             label: <p>English</p>,
-            onClick: () => setSelectedLang("En"),
+            onClick: () => handleLangChange("en"),
         },
     ];
 
@@ -64,7 +91,6 @@ const Navbar = () => {
             <div className="container mx-auto px-4 flex items-center justify-between h-full">
                 {/* Logo */}
                 <div className="flex items-center gap-2">
-
                     <img src={mainLogo} alt="Logo" className="w-12 h-11 rounded-full" />
                     <ScrollLink
                         to="home"
@@ -72,8 +98,8 @@ const Navbar = () => {
                         smooth={true}
                         offset={-58}
                         duration={500}
-                        onSetActive={() => setActiveTab("home")}>
-
+                        onSetActive={() => setActiveTab("home")}
+                    >
                         <h1 className="text-md font-bold cursor-pointer">Azamat Po'latov</h1>
                     </ScrollLink>
                 </div>
@@ -99,7 +125,7 @@ const Navbar = () => {
                         </ScrollLink>
                     ))}
 
-                    {/* Animated underline */}
+                    {/* Underline */}
                     <motion.div
                         className="absolute bottom-0 h-[2px] bg-blue-500"
                         layout
@@ -114,12 +140,12 @@ const Navbar = () => {
                 {/* Lang & Button */}
                 <div className="flex gap-2">
                     <Dropdown menu={{ items }} arrow>
-                        <Button>{selectedLang}</Button>
+                        <Button className="text-[18px]!">{selectedLang}</Button>
                     </Dropdown>
-                    <Button type="primary">Contact Me</Button>
+                    <Button type="primary">Bog‘lanish</Button>
                 </div>
             </div>
-        </div >
+        </div>
     );
 };
 

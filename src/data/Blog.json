@@ -1,35 +1,35 @@
 [
-    {
-      "id": 1,
-      "title": "5 React Hook misoli amaliyotda",
-      "date": "June 2025",
-      "image": "https://source.unsplash.com/400x300/?react,code",
-      "tags": ["React", "Hooks", "Frontend"],
-      "description": "React'da eng ko‘p ishlatiladigan 5 hook’ni amaliy misollar bilan tushuntiraman."
-    },
-    {
-      "id": 2,
-      "title": "Firebase bilan login va parolni soddalik bilan qo‘shish",
-      "date": "May 2025",
-      "image": "https://source.unsplash.com/400x300/?firebase,auth",
-      "tags": ["Firebase", "Authentication", "Security"],
-      "description": "Firebase orqali tizimga kirish va ro‘yxatdan o‘tish funksiyalarini qanday sozlash haqida to‘liq qo‘llanma."
-    },
-    {
-      "id": 3,
-      "title": "Tailwind CSS bilan 5 ta eng samarali dizayn patternlari",
-      "date": "April 2025",
-      "image": "https://source.unsplash.com/400x300/?tailwind,css",
-      "tags": ["Tailwind", "UI", "Responsive"],
-      "description": "Loyihangizni samarali qilish uchun eng foydali Tailwind amaliy dizayn patternlari."
-    },
-    {
-      "id": 4,
-      "title": "Portfolio yaratishda 3 ta katta xatolik (va men ularni qanday tuzatdim)",
-      "date": "March 2025",
-      "image": "https://source.unsplash.com/400x300/?portfolio,code",
-      "tags": ["Portfolio", "Experience", "Tips"],
-      "description": "Yangi boshlovchilar uchun portfolio yaratishda qilingan xatolar va foydali maslahatlar."
-    }
-  ]
-  
+  {
+    "id": 1,
+    "title": "Zustand bilan engil va tezkor holat boshqaruvi",
+    "slug": "zustand-state-management",
+    "date": "2025-06-30",
+    "author": "Azamat Pulatov",
+    "tags": ["Zustand", "React", "State Management"],
+    "thumbnail": "https://blog.openreplay.com/images/zustand-state-management-for-react/images/hero.png",
+    "description": "Zustand — React ilovalari uchun minimal va kuchli state management kutubxonasi. Bu State-menejmentni soddalashtiradi.",
+    "content": "Zustand — engil, dependency-free va hooks asosida ishlovchi state management kutubxonasi bo‘lib, Redux yoki Context API bilan solishtirganda sezilarli darajada soddalikni taklif etadi. U `create` funksiyasi yordamida global holatni yaratadi va `useStore` hook orqali komponentlarga ulanadi. Maqolada Zustand bilan counter, shopping cart yoki user authentication kabi holatlarni qanday boshqarish haqida amaliy misollar keltiriladi. Shuningdek, Zustand'ning middleware, persist, devtools kabi qulay funksiyalaridan ham foydalanishni o‘rganasiz."
+  },  
+  {
+    "id": 2,
+    "title": "Tailwind CSS: Tez va samarali UI yaratish",
+    "slug": "tailwindcss-ui",
+    "date": "2025-06-25",
+    "author": "Azamat Pulatov",
+    "tags": ["Tailwind CSS", "Responsive", "Design"],
+    "thumbnail": "https://i.pinimg.com/736x/fe/38/11/fe3811748c41b542853029dd91209821.jpg",
+    "description": "Tailwind CSS yordamida komponentlarni tezkor va moslashuvchan tarzda yaratishning eng yaxshi usullari haqida maqola.",
+    "content": "Tailwind CSS bu utility-first framework bo‘lib, sizga CSS yozmasdan ham chiroyli dizaynlarni yaratish imkonini beradi. Ushbu maqolada siz Tailwind sinflari, responsive dizayn, dark mode va custom theme kabi mavzularni o‘rganasiz. Shuningdek, real loyihalarda Tailwind'dan qanday foydalanish haqida misollar keltiriladi."
+  },
+  {
+    "id": 3,
+    "title": "API bilan ishlash: Axios, Tanstack va Custom Hooks",
+    "slug": "api-fetch-axios-hooks",
+    "date": "2025-06-20",
+    "author": "Azamat Pulatov",
+    "tags": ["API", "Axios", "React Hooks"],
+    "thumbnail": "https://blog.openreplay.com/images/tanstack--how-to-add-tables-to-your-react-app/images/hero.png",
+    "description": "Frontendda backend bilan ulanish — dasturchi uchun muhim ko‘nikmalardan biri. Tanstack-query orqali bu jarayon juda yaxshi va soddalashtirilgan.",
+    "content": "React ilovalarida API dan ma'lumot olish uchun ko‘plab usullar mavjud. Ushbu maqolada Fetch API va Axios kutubxonasi yordamida ma'lumotlarni qanday chaqirish, error handling, loading holatlari va `useEffect` bilan ishlash haqida ma’lumot beriladi. Shuningdek, qayta foydalanish mumkin bo‘lgan custom hooklar yaratish ham ko‘rib chiqiladi."
+  }
+]
