@@ -142,7 +142,9 @@ const Navbar = () => {
                     <Dropdown menu={{ items }} arrow>
                         <Button className="text-[18px]!">{selectedLang}</Button>
                     </Dropdown>
+                    <a href="https://uz.linkedin.com/in/azamat-pulatov-104359276">
                     <Button type="primary">Bog‘lanish</Button>
+                    </a>
                 </div>
             </div>
         </div>
