@@ -16,14 +16,6 @@
         "url": "https://nest-dashboard-blue.vercel.app/",
         "category": "Full-Stack Development",
         "tags": ["CRM", "Dashboard", "React"]
-    },
-    {
-        "id": 3,
-        "name": "Weather App",
-        "description": "A simple weather application that provides current weather information using a public API.",
-        "image": "https://i.postimg.cc/3JjJCnPC/gotosam.png",
-        "url": "https://weatherapp.com",
-        "category": "Web Development",
-        "tags": ["Weather", "API", "JavaScript"]
     }
+    
 ]
