@@ -13,7 +13,7 @@ const Header = () => {
             <h2 className="bg-green-200/20 px-4 py-2 mb-3 rounded-xl font-bold font-mono">{t("software")}</h2>        
         </FadeInWhenVisible>
         <FadeInWhenVisible delay={0} >            
-                <img src={headerLogo} alt="Header Logo" className="w-42 h-42 md:w-[10vw] md:h-[10vw] mb-6 rounded-full shadow-lg" />
+                <img src={headerLogo} alt="Header Logo" className="w-[60vw]  md:w-[10vw] md:h-[10vw] mb-6 rounded-full shadow-lg" />
         </FadeInWhenVisible>
       <FadeInWhenVisible delay={0.2}>
         <h1 className="text-4xl md:text-6xl xl:text-7xl font-bold mb-4">
