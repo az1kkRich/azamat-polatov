@@ -1,19 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Button, Dropdown } from "antd";
+import { Button, Dropdown, Drawer } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
 import { Link as ScrollLink } from "react-scroll";
 import { motion } from "framer-motion";
 import mainLogo from "../assets/mainLogo2.png";
 import { useTranslation } from "react-i18next";
-
-
+import FadeInWhenVisible from "../effects/FadeInWhenVisible";
+import SlideInWhenVisible from "../effects/SlideInWhenVisible";
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [selectedLang, setSelectedLang] = useState("uz");
     const [activeTab, setActiveTab] = useState("home");
     const [underlineProps, setUnderlineProps] = useState({ left: 0, width: 0 });
+    const [drawerVisible, setDrawerVisible] = useState(false);
 
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const navLinks = [
         { name: t("Home"), to: "home" },
@@ -21,11 +23,10 @@ const Navbar = () => {
         { name: t("Projects"), to: "projects" },
         { name: t("Skills"), to: "skills" },
         { name: t("Blog"), to: "blog" },
-      ];
-    
+    ];
+
     const linkRefs = useRef({});
 
-    // Scroll event
     useEffect(() => {
         const onScroll = () => {
             setScrolled(window.scrollY > 50);
@@ -34,7 +35,6 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    // Underline update
     useEffect(() => {
         const currentEl = linkRefs.current[activeTab];
         if (currentEl) {
@@ -43,26 +43,20 @@ const Navbar = () => {
         }
     }, [activeTab]);
 
-
-    const { i18n } = useTranslation();
-
-
-    // Load saved language from localStorage
     useEffect(() => {
         const savedLang = localStorage.getItem("lang");
         if (savedLang) {
             setSelectedLang(savedLang);
         } else {
-            localStorage.setItem("lang", "en"); // Default to Uzbek if no language is saved
+            localStorage.setItem("lang", "en");
         }
     }, []);
 
     const handleLangChange = (lang) => {
         setSelectedLang(lang);
         localStorage.setItem("lang", lang);
-        i18n.changeLanguage(lang); // <-- MUHIM QISM
+        i18n.changeLanguage(lang);
         console.log(`Language changed to: ${lang}`, i18n.language);
-        
     };
 
     const items = [
@@ -104,11 +98,11 @@ const Navbar = () => {
                     </ScrollLink>
                 </div>
 
-                {/* Nav Links */}
+                {/* Nav Links (Desktop) */}
                 <div className="relative hidden md:flex gap-6">
-                    {navLinks.map((link) => (
+                    {navLinks.map((link, index) => (
+
                         <ScrollLink
-                            key={link.to}
                             to={link.to}
                             spy={true}
                             smooth={true}
@@ -137,15 +131,65 @@ const Navbar = () => {
                     />
                 </div>
 
-                {/* Lang & Button */}
-                <div className="flex gap-2">
+                {/* Lang & Contact (Desktop) */}
+                <div className="hidden md:flex gap-2">
                     <Dropdown menu={{ items }} arrow>
                         <Button className="text-[18px]!">{selectedLang}</Button>
                     </Dropdown>
                     <a href="https://uz.linkedin.com/in/azamat-pulatov-104359276">
-                    <Button type="primary">Bog‘lanish</Button>
+                        <Button type="primary">{t("Contact")}</Button>
                     </a>
                 </div>
+
+                {/* Menu Button (Mobile) */}
+                <div className="md:hidden">
+                    <Button
+                        type="text"
+                        icon={<MenuOutlined style={{ fontSize: "24px", color: "white" }} />}
+                        onClick={() => setDrawerVisible(true)}
+                    />
+                </div>
+
+                {/* Mobile Drawer */}
+                <Drawer
+                    title="Menu"
+                    placement="right"
+                    onClose={() => setDrawerVisible(false)}
+                    open={drawerVisible}
+                >
+                    <div className="h-full pb-10 flex flex-col justify-between gap-4">
+                        <div>
+                            {navLinks.map((link, index) => (
+                                <SlideInWhenVisible delay={index * 0.05}>
+                                    <ScrollLink
+                                        key={link.to}
+                                        to={link.to}
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-56}
+                                        duration={500}
+                                        onSetActive={() => {
+                                            setActiveTab(link.to);
+                                            setDrawerVisible(false);
+                                        }}
+                                    >
+                                        <div className="cursor-pointer text-center text-white text-4xl mb-14">{link.name}</div>
+                                    </ScrollLink>
+                                </SlideInWhenVisible>
+                            ))}
+
+                        </div>
+                        <div className="flex gap-2">
+                            <Dropdown menu={{ items }} arrow className="w-1/2">
+                                <Button>Current Language : <span className="text-green-600">{selectedLang}</span></Button>
+                            </Dropdown>
+                            <a href="https://uz.linkedin.com/in/azamat-pulatov-104359276" className="w-1/2">
+                                <Button type="primary" block>{t("Contact")}</Button>
+                            </a>
+
+                        </div>
+                    </div>
+                </Drawer>
             </div>
         </div>
     );
