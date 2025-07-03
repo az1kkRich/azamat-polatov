@@ -4,12 +4,15 @@ import SlideInWhenVisible from "../effects/SlideInWhenVisible";
 import ProjectsData from "../data/Projects.json"
 import { Button } from "antd";
 import { MdOutlineNavigateNext } from "react-icons/md";
+import { useTranslation } from "react-i18next";
 
 
 
 const Projects = () => {
 
     const [loadings, setLoadings] = useState([]);
+
+    const {t} = useTranslation();
 
     const enterLoading = (index, url) => {
 
@@ -38,10 +41,10 @@ const Projects = () => {
             <div className="container mx-auto  px-4">
 
                 <SlideInWhenVisible direction="down" delay={0.3}>
-                    <p className="font-bold bg-blue-800/50 w-fit mx-auto px-4 py-1 rounded-2xl">My Projects</p>
+                    <p className="font-bold bg-blue-800/50 w-fit mx-auto px-4 py-1 rounded-2xl">{t("My")} {t("Projects")}</p>
                 </SlideInWhenVisible>
                 <SlideInWhenVisible direction="up" className="mb-10">
-                    <h1 className="text-center text-2xl xl:text-4xl font-bold "><span className="text-blue-500">Projects</span> I Created </h1>
+                    <h1 className="text-center text-2xl xl:text-4xl font-bold "><span className="text-blue-500">{t("Projects")}</span> {t("I-Created")} </h1>
                 </SlideInWhenVisible>
 
 

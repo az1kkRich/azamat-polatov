@@ -4,9 +4,11 @@ import profileImg from "../assets/inCityNight-3-4.png"; // kerak bo‘lsa
 import SlideInWhenVisible from "../effects/SlideInWhenVisible";
 import HowIWork from "./HowIWork";
 import { useEffect, useLayoutEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
     
+    const {t} = useTranslation()
     
     return (
         
@@ -26,13 +28,12 @@ const About = () => {
                 {/* O'ng taraf - matn */}
                 <SlideInWhenVisible direction='right' delay={0.2} className="w-full md:w-1/2">
 
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("About")}</h2>
                     <p className="text-lg text-gray-300 mb-4">
-                        I'm <span className="font-semibold text-white">Azamat Po‘latov</span>, a passionate frontend developer with a strong focus on TypeScript React, Redux-Toolkit, Next.js, TailwindCSS, and modern UI/UX design.
-                        I enjoy building beautiful, interactive, and responsive websites that bring ideas to life.
+                        {t("about-t1")} <span className="font-semibold text-white">{t("name")}</span>, {t("about-t2")}
                     </p>
                     <p className="text-gray-400">
-                        With experience in component-based development, data fetching, animations, and performance optimization, I aim to deliver clean code and a great user experience.
+                        {t("about-p")}
                     </p>
                 </SlideInWhenVisible>
             </div>

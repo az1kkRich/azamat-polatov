@@ -94,7 +94,7 @@ const Navbar = () => {
                         duration={500}
                         onSetActive={() => setActiveTab("home")}
                     >
-                        <h1 className="text-md font-bold cursor-pointer">Azamat Po'latov</h1>
+                        <h1 className="text-md font-bold cursor-pointer">{t("name")}</h1>
                     </ScrollLink>
                 </div>
 

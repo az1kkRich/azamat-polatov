@@ -1,23 +1,25 @@
 import { FaGithub, FaLinkedin, FaTelegram } from 'react-icons/fa';
 import { Link } from 'react-scroll';
 import inCity2 from '../assets/inCityNight2.png'
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const {t} = useTranslation();
   return (
     <footer className="bg-gray-900  text-gray-300 py-10">
       <div className="container max-w-7xl mx-auto px-4 flex flex-col items-center md:justify-between md:flex-row md:items-start gap-6">
         
         {/* Logo / Name */}
         <div className="mb-6 md:mb-0">
-          <h2 className="text-2xl font-bold text-white">Azamat Pulatov</h2>
-          <p className="text-sm mt-2">Frontend Developer Portfolio</p>
+          <h2 className="text-2xl font-bold text-white">{t("name")}</h2>
+          <p className="text-sm mt-2">{t("Frontend Developer Portfolio")}</p>
 
         </div>
           <img src={inCity2} alt="Azamat Pulatov" className="mt-4 w-32 h-32 rounded-full object-cover" />
 
         {/* Navigation */}
         <div className="mb-6 md:mb-0 text-center md:text-start">
-          <h3 className="text-lg font-semibold text-white mb-2">Sections</h3>
+          <h3 className="text-lg font-semibold text-white mb-2">{t("Sections")}</h3>
           <ul className="space-y-1 text-sm">
             
           <li>
@@ -27,7 +29,7 @@ const Footer = () => {
                 duration={500}
                 className="cursor-pointer hover:text-white transition"
               >
-                Home
+                {t("Home")}
               </Link>
             </li>
             <li>
@@ -37,7 +39,7 @@ const Footer = () => {
                 duration={500}
                 className="cursor-pointer hover:text-white transition"
               >
-                About Me
+                {t("About")}
               </Link>
             </li>
             <li>
@@ -47,7 +49,7 @@ const Footer = () => {
                 duration={500}
                 className="cursor-pointer hover:text-white transition"
               >
-                Projects
+                {t("Projects")}
               </Link>
             </li>
             <li>
@@ -57,7 +59,7 @@ const Footer = () => {
                 duration={500}
                 className="cursor-pointer hover:text-white transition"
               >
-                Skills
+                {t("Skills")}
               </Link>
             </li>
             <li>
@@ -67,7 +69,7 @@ const Footer = () => {
                 duration={500}
                 className="cursor-pointer hover:text-white transition"
               >
-                Blog
+                {t("Blog")}
               </Link>
             </li>
             

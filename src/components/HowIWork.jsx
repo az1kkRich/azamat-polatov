@@ -1,6 +1,7 @@
 import React from "react";
 import FadeInWhenVisible from "../effects/FadeInWhenVisible";
 import SlideInWhenVisible from "../effects/SlideInWhenVisible";
+import { useTranslation } from "react-i18next";
 
 const steps = [
     {
@@ -48,15 +49,17 @@ const steps = [
 ];
 
 const HowIWork = () => {
+
+    const {t} = useTranslation()
     return (
         <section className="Proccess pt-10 pb-15 px-4" id="how-i-work">
             <div className="container mx-auto  px-4">
 
                 <SlideInWhenVisible direction="down" delay={0.3}>
-                    <p className="font-bold bg-blue-800/50 w-fit mx-auto px-3 py-1 rounded-2xl">My Proccess</p>
+                    <p className="font-bold bg-blue-800/50 w-fit mx-auto px-3 py-1 rounded-2xl">{t('My-Proccess')}</p>
                 </SlideInWhenVisible>
                 <SlideInWhenVisible direction="up" className="mb-10">
-                    <h1 className="text-center text-2xl xl:text-4xl font-bold ">How I <span className="text-blue-500">Work</span></h1>
+                    <h1 className="text-center text-2xl xl:text-4xl font-bold ">{t("How-I")} <span className="text-blue-500">{t("Work")}</span></h1>
                 </SlideInWhenVisible>
 
 

@@ -15,6 +15,7 @@ import {
     SiTailwindcss,
 } from "react-icons/si";
 import SlideInWhenVisible from "../effects/SlideInWhenVisible";
+import { useTranslation } from "react-i18next";
 
 const levels = [
     {
@@ -74,11 +75,12 @@ const levels = [
 ];
 
 const SkillLevel = () => {
+    const { t } = useTranslation();
     return (
         <section className="py-20 bg-[#0a0a23] text-white overflow-hidden" id="skill-level">
             <div className="max-w-4xl mx-auto px-4">
                 <h2 className="text-3xl font-bold text-center mb-10">
-                    My <span className="text-blue-500">Proficiency</span>
+                    {t("My")} <span className="text-blue-500">{t("Proficiency")}</span>
                 </h2>
 
                 <div className="space-y-6">

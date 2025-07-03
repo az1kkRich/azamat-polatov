@@ -16,6 +16,7 @@ import {
 
 import SlideInWhenVisible from "../effects/SlideInWhenVisible";
 import SkillLevel from "./SkillLevel";
+import { useTranslation } from "react-i18next";
 
 const skills = [
     { name: "HTML", icon: SiHtml5, color: "text-orange-500" },
@@ -33,14 +34,15 @@ const skills = [
 ];
 
 const Skills = () => {
+    const {t} = useTranslation();
     return (
         <section id="skills" className="py-24 bg-[#0f172a] text-white overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 text-center">
                 <SlideInWhenVisible direction="down" delay={0.3}>
-                    <p className="font-bold bg-blue-800/50 w-fit mx-auto px-4 py-1 rounded-2xl">My Skills</p>
+                    <p className="font-bold bg-blue-800/50 w-fit mx-auto px-4 py-1 rounded-2xl">{t("My")} {t("Skills")}</p>
                 </SlideInWhenVisible>
                 <SlideInWhenVisible direction="up" className="mb-10">
-                    <h1 className="text-center text-2xl xl:text-4xl font-bold "><span className="text-blue-500">Technologies</span> I Use </h1>
+                    <h1 className="text-center text-2xl xl:text-4xl font-bold "><span className="text-blue-500">{t("Technologies")}</span> {t("I-Use")} </h1>
                 </SlideInWhenVisible>
 
                 <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6 gap-6 justify-items-center mb-10">

@@ -3,20 +3,23 @@ import SlideInWhenVisible from "../effects/SlideInWhenVisible";
 import { Button, Modal } from 'antd';
 
 import blogs from "../data/Blog.json";
+import { useTranslation } from "react-i18next";
 
 
 const BlogSection = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const {t} = useTranslation()
 
 
   return (
     <section id="blog" className="py-24 Proccess text-white">
       <div className="max-w-6xl mx-auto px-4 text-center">
         <SlideInWhenVisible direction="down" delay={0.3}>
-          <p className="font-bold bg-blue-800/50 w-fit mx-auto px-4 py-1 rounded-2xl">My Blog</p>
+          <p className="font-bold bg-blue-800/50 w-fit mx-auto px-4 py-1 rounded-2xl">{t("My")} {t("Blog")}</p>
         </SlideInWhenVisible>
         <SlideInWhenVisible direction="up" className="mb-10">
-          <h1 className="text-center text-2xl xl:text-4xl font-bold "><span className="text-blue-500">Latest</span> Texnologies </h1>
+          <h1 className="text-center text-2xl xl:text-4xl font-bold "><span className="text-blue-500">{t("Latest")}</span> {t("News")} </h1>
         </SlideInWhenVisible>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
