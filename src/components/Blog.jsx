@@ -8,6 +8,17 @@ import { useTranslation } from "react-i18next";
 
 const BlogSection = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedPost, setSelectedPost] = useState(null)
+
+  const handleOpenModal = (post) => {
+    setIsOpen(true);
+    setSelectedPost(post);
+  }
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+    setSelectedPost(null);
+  }
 
   const {t} = useTranslation()
 
@@ -44,7 +55,7 @@ const BlogSection = () => {
                   <Button
                     type="text"
                     className="text-blue-500! text-sm py-5!  group "
-                    onClick={() => setIsOpen(true)}
+                    onClick={() => handleOpenModal(post)}
                   >
                     <span className="flex items-center gap-1">
                       Read More
@@ -53,19 +64,20 @@ const BlogSection = () => {
                       </span>
                     </span>
                   </Button>
-                  <Modal
-                    title={post.title}
+                  {
+                    selectedPost && <Modal
+                    title={selectedPost.title}
                     open={isOpen}
-                    onOk={() => setIsOpen(false)}
-                    onCancel={() => setIsOpen(false)}
+                    onOk={() => handleCloseModal()}
+                    onCancel={() => handleCloseModal()}
                      >
-                    <img src={post.thumbnail} alt={post.title} className="w-full h-48 object-cover" />
-                    <p className="text-sm text-gray-400">{post.date}</p>
-                    <h3 className="text-xl font-bold mb-2">{post.title}</h3>
-                    <p className="text-gray-300 text-sm font-semibold mb-1 ">{post.description}</p>
-                    <p className="text-gray-200 text-sm mb-4 ">{post.content}</p>
+                    <img src={selectedPost.thumbnail} alt={selectedPost.title} className="w-full h-48 object-cover" />
+                    <p className="text-sm text-gray-400">{selectedPost.date}</p>
+                    <h3 className="text-xl font-bold mb-2">{selectedPost.title}</h3>
+                    <p className="text-gray-300 text-sm font-semibold mb-1 ">{selectedPost.description}</p>
+                    <p className="text-gray-200 text-sm mb-4 ">{selectedPost.content}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {post.tags.map((tag, i) => (
+                      {selectedPost.tags.map((tag, i) => (
                         <span
                           key={i}
                           className="text-xs bg-blue-700 px-2 py-1 rounded-full text-white"
@@ -75,6 +87,7 @@ const BlogSection = () => {
                       ))}
                     </div>
                   </Modal>
+                  }
                 </div>
               </div>
             </SlideInWhenVisible>

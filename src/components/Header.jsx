@@ -2,6 +2,8 @@ import FadeInWhenVisible from "../effects/FadeInWhenVisible";
 import headerLogo from "../assets/Header.png";
 import { Link as ScrollLink } from "react-scroll";
 import { useTranslation } from "react-i18next";
+import { Button } from "antd";
+import { FaLinkedin } from "react-icons/fa";
 
 
 
@@ -38,12 +40,14 @@ const Header = () => {
             >
               {t("viewProjects")}
             </ScrollLink>
-          <a
-            href="#contact"
-            className="px-6 py-2 border border-blue-600 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition"
+          <Button
+            href="https://uz.linkedin.com/in/azamat-pulatov-104359276"
+            target="blank"
+            icon={<FaLinkedin />}
+            className="px-6 py-5 border border-blue-600 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition"
           >
-            {t("Contact")}
-          </a>
+            {t("mylinkedin")}
+          </Button>
         </div>
       </FadeInWhenVisible>
     </section>
